@@ -1,0 +1,16 @@
+name: 'Setup gsc-tool'
+description: 'GitHub action to setup gsc-tool on Linux, Windows and MacOS.'
+inputs:
+  version:
+    description: 'gsc-tool version'
+    required: true
+  path:
+    description: 'gsc-tool path'
+    required: false
+    default: '.gsc-tool'
+branding:
+  icon: 'box'
+  color: 'red'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

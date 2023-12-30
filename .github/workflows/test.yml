@@ -1,0 +1,55 @@
+name: test
+
+on: [push]
+
+jobs:
+  test-win:
+    name: Test on Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out files
+        uses: actions/checkout@main
+
+      - name: Setup gsc-tool
+        uses: ./
+        with:
+          version: "1.2.0"
+
+      - name: Compile test script
+        run: |
+          ./scripts/test.bat
+
+  test-linux:
+    name: Test on Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out files
+        uses: actions/checkout@main
+
+      - name: Setup gsc-tool
+        uses: ./
+        with:
+          version: "1.2.0"
+
+      - name: Compile test script
+        run: |
+          ./scripts/test.sh
+
+  test-macos:
+    name: Test on macOS
+    runs-on: macos-latest
+
+    steps:
+      - name: Check out files
+        uses: actions/checkout@main
+
+      - name: Setup gsc-tool
+        uses: ./
+        with:
+          version: "1.2.0"
+
+      - name: Compile test script
+        run: |
+          ./scripts/test.sh
